@@ -102,9 +102,9 @@ struct InsightsHeaderSection: View {
         VStack(spacing: 12) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("个人行为洞察")
-                        .font(.title2)
-                        .fontWeight(.bold)
+                    // Text("个人行为洞察")
+                    //     .font(.title2)
+                    //     .fontWeight(.bold)
                     
                     Text("基于你的数据生成的个性化洞察")
                         .font(.subheadline)

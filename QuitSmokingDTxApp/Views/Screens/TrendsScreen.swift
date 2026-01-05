@@ -247,15 +247,14 @@ struct TrendsChart: View {
     let timeRange: TimeRange
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 16) {
             HStack {
                 Text("吸烟 vs 忍住趋势")
                     .font(.headline)
                 Spacer()
             }
             
-            HeatmapChart(data: sampleData, timeRange: timeRange)
-                .frame(height: 200)
+            ContributionChart(data: sampleData, timeRange: timeRange)
         }
         .padding()
         .background(
@@ -498,8 +497,6 @@ struct HeatmapChart: View {
     let timeRange: TimeRange
     
     var body: some View {
-        let cellSize = getCellSize()
-        
         ScrollView(.horizontal, showsIndicators: false) {
             Chart(data) { item in
                 RectangleMark(
@@ -660,5 +657,109 @@ struct HeatmapChart: View {
     
     private var legendColors: [Color] {
         Array(stride(from: 0, to: colors.count, by: 2).map { colors[$0] })
+    }
+}
+
+// MARK: - 简化版贡献图
+struct ContributionChart: View {
+    let data: [DailyData]
+    let timeRange: TimeRange
+    
+    private let weekdays = ["一", "三", "五", "日"]
+    
+    var body: some View {
+        VStack(spacing: 8) {
+            // 图表主体
+            GeometryReader { geometry in
+                let cellSize = calculateCellSize(width: geometry.size.width)
+                let spacing: CGFloat = 2
+                
+                HStack(alignment: .top, spacing: 0) {
+                    // Y 轴标签
+                    VStack(spacing: 0) {
+                        ForEach(0..<7) { index in
+                            if index % 2 == 0 {
+                                Text(weekdays[index / 2])
+                                    .font(.system(size: 9))
+                                    .foregroundColor(.secondary)
+                                    .frame(height: cellSize + spacing)
+                            } else {
+                                Color.clear.frame(height: cellSize + spacing)
+                            }
+                        }
+                    }
+                    .frame(width: 16)
+                    
+                    // 热力图方格
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: Array(repeating: GridItem(.fixed(cellSize), spacing: spacing), count: 7), spacing: spacing) {
+                            ForEach(sortedData) { item in
+                                RoundedRectangle(cornerRadius: 2)
+                                    .fill(colorForCount(item.resistedCount))
+                                    .frame(width: cellSize, height: cellSize)
+                            }
+                        }
+                        .padding(.trailing, 8)
+                    }
+                }
+            }
+            .frame(height: chartHeight)
+            
+            // 图例
+            HStack(spacing: 4) {
+                Spacer()
+                Text("少")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+                ForEach(legendColors, id: \.self) { color in
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(color)
+                        .frame(width: 10, height: 10)
+                }
+                Text("多")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
+        }
+    }
+    
+    private var sortedData: [DailyData] {
+        data.sorted { $0.date < $1.date }
+    }
+    
+    private func calculateCellSize(width: CGFloat) -> CGFloat {
+        switch timeRange {
+        case .week: return 22
+        case .month: return 16
+        case .threeMonths: return 12
+        case .year: return 8
+        }
+    }
+    
+    private var chartHeight: CGFloat {
+        switch timeRange {
+        case .week: return 180
+        case .month: return 150
+        case .threeMonths: return 120
+        case .year: return 90
+        }
+    }
+    
+    private func colorForCount(_ count: Int) -> Color {
+        if count == 0 { return Color(.systemGray5) }
+        else if count <= 2 { return Color.green.opacity(0.3) }
+        else if count <= 4 { return Color.green.opacity(0.5) }
+        else if count <= 6 { return Color.green.opacity(0.7) }
+        else { return Color.green }
+    }
+    
+    private var legendColors: [Color] {
+        [
+            Color(.systemGray5),
+            Color.green.opacity(0.3),
+            Color.green.opacity(0.5),
+            Color.green.opacity(0.7),
+            Color.green
+        ]
     }
 }

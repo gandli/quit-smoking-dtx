@@ -47,9 +47,9 @@ struct EconomyHeaderSection: View {
         VStack(spacing: 12) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("经济消费分析")
-                        .font(.title2)
-                        .fontWeight(.bold)
+                    // Text("经济消费分析")
+                    //     .font(.title2)
+                    //     .fontWeight(.bold)
                     
                     Text("帮助你感知戒烟的经济影响")
                         .font(.subheadline)
