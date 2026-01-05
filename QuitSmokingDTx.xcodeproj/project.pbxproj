@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39FE705D36D6360839301ACC /* EconomyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2FEE959B7B6D473A0DE4F /* EconomyScreen.swift */; };
+		3BD8116AC2FBA834F650CC76 /* QuitSmokingDTxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4420C53D3CEB448FBBDA980D /* QuitSmokingDTxUITests.swift */; };
+		45C7E411E59843E7DB28E58D /* InterventionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE9E40F4E1D1D05769168AE /* InterventionScreen.swift */; };
+		4F0ED100B007F31487F23DA9 /* TrendsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28068CCFA91EA80453651D5 /* TrendsScreen.swift */; };
+		6051AC1A5DA45B5E3053625E /* QuitSmokingDTxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E432EF390A0B57C656B31CE /* QuitSmokingDTxApp.swift */; };
+		898B9D0C0AC3ECEE14402C40 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29913BE4C273539E37C209D9 /* NotificationService.swift */; };
+		93E4DBC994D06B5B673974CC /* InsightsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBB37FA033651D8E0ABA7F /* InsightsScreen.swift */; };
+		AC74ED5EE80C56630C9AFE1C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD63B52307E0A7FB470793 /* AppState.swift */; };
+		B7345EBACD2189A28BDAD780 /* QuitSmokingDTxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8EEF778C34CCB3B92B82A4 /* QuitSmokingDTxTests.swift */; };
+		B9AC6CF9B10DEF2317B87325 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 497825FF6ABE187B9E0A775F /* PrivacyInfo.xcprivacy */; };
+		C21AF5119510EF69C89028DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455B6C48E6DDB7B136507E8 /* ContentView.swift */; };
+		C87DC15880CA8A2EDC5DE86C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E82500376D9464A5A455EEC /* HomeScreen.swift */; };
+		CE9614CB495D4736A05B33FA /* DataStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16691118EEDCAA44B1E2DE95 /* DataStorageService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57384B6B268EF7F6CE2893FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 855317058BF4C41816050685 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F445AC00392F5E8718F75C5;
+			remoteInfo = QuitSmokingDTx;
+		};
+		C3F6573E9DEC7EDCF5724C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 855317058BF4C41816050685 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F445AC00392F5E8718F75C5;
+			remoteInfo = QuitSmokingDTx;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		16691118EEDCAA44B1E2DE95 /* DataStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageService.swift; sourceTree = "<group>"; };
+		1E432EF390A0B57C656B31CE /* QuitSmokingDTxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSmokingDTxApp.swift; sourceTree = "<group>"; };
+		2500F9B8313EE1D58FD5A7F4 /* QuitSmokingDTxTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = QuitSmokingDTxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		29913BE4C273539E37C209D9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		2CE9E40F4E1D1D05769168AE /* InterventionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterventionScreen.swift; sourceTree = "<group>"; };
+		3A34700D3D11B344FCA08125 /* QuitSmokingDTx.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitSmokingDTx.entitlements; sourceTree = "<group>"; };
+		3DCE63826E9C2FAE1D9C2EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4420C53D3CEB448FBBDA980D /* QuitSmokingDTxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSmokingDTxUITests.swift; sourceTree = "<group>"; };
+		497825FF6ABE187B9E0A775F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4FC6284A21CAB5075E9E1F88 /* QuitSmokingDTx.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = QuitSmokingDTx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55C2FEE959B7B6D473A0DE4F /* EconomyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EconomyScreen.swift; sourceTree = "<group>"; };
+		7BAD63B52307E0A7FB470793 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8E82500376D9464A5A455EEC /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		9FAC45B32B4A3F7004D7252E /* QuitSmokingDTxUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = QuitSmokingDTxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0DBB37FA033651D8E0ABA7F /* InsightsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsScreen.swift; sourceTree = "<group>"; };
+		C28068CCFA91EA80453651D5 /* TrendsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsScreen.swift; sourceTree = "<group>"; };
+		E455B6C48E6DDB7B136507E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EF8EEF778C34CCB3B92B82A4 /* QuitSmokingDTxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSmokingDTxTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		07054DE0D20B42E378B7F60A /* QuitSmokingDTxTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF8EEF778C34CCB3B92B82A4 /* QuitSmokingDTxTests.swift */,
+			);
+			path = QuitSmokingDTxTests;
+			sourceTree = "<group>";
+		};
+		0E595D2242389A4DA7530F4D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				497825FF6ABE187B9E0A775F /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0F177BC35DCD82D1008A9330 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				55C2FEE959B7B6D473A0DE4F /* EconomyScreen.swift */,
+				8E82500376D9464A5A455EEC /* HomeScreen.swift */,
+				C0DBB37FA033651D8E0ABA7F /* InsightsScreen.swift */,
+				2CE9E40F4E1D1D05769168AE /* InterventionScreen.swift */,
+				C28068CCFA91EA80453651D5 /* TrendsScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		28CCD02B920095CF2809F339 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				16691118EEDCAA44B1E2DE95 /* DataStorageService.swift */,
+				29913BE4C273539E37C209D9 /* NotificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3DD98AC3182EAE4A462312EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FC6284A21CAB5075E9E1F88 /* QuitSmokingDTx.app */,
+				2500F9B8313EE1D58FD5A7F4 /* QuitSmokingDTxTests.xctest */,
+				9FAC45B32B4A3F7004D7252E /* QuitSmokingDTxUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6855568116682FAF11B011FF /* QuitSmokingDTxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4420C53D3CEB448FBBDA980D /* QuitSmokingDTxUITests.swift */,
+			);
+			path = QuitSmokingDTxUITests;
+			sourceTree = "<group>";
+		};
+		7B2A3F8298543EBD1A92A572 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E455B6C48E6DDB7B136507E8 /* ContentView.swift */,
+				0F177BC35DCD82D1008A9330 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		90315B80445FA1E54A5AFBC7 /* QuitSmokingDTxApp */ = {
+			isa = PBXGroup;
+			children = (
+				3DCE63826E9C2FAE1D9C2EAB /* Info.plist */,
+				3A34700D3D11B344FCA08125 /* QuitSmokingDTx.entitlements */,
+				9BA5285F3DB68071EF52E0BD /* App */,
+				0E595D2242389A4DA7530F4D /* Resources */,
+				28CCD02B920095CF2809F339 /* Services */,
+				7B2A3F8298543EBD1A92A572 /* Views */,
+			);
+			path = QuitSmokingDTxApp;
+			sourceTree = "<group>";
+		};
+		9BA5285F3DB68071EF52E0BD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7BAD63B52307E0A7FB470793 /* AppState.swift */,
+				1E432EF390A0B57C656B31CE /* QuitSmokingDTxApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EF29DAC9F9AB9BC13572FDF1 = {
+			isa = PBXGroup;
+			children = (
+				90315B80445FA1E54A5AFBC7 /* QuitSmokingDTxApp */,
+				07054DE0D20B42E378B7F60A /* QuitSmokingDTxTests */,
+				6855568116682FAF11B011FF /* QuitSmokingDTxUITests */,
+				3DD98AC3182EAE4A462312EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0F445AC00392F5E8718F75C5 /* QuitSmokingDTx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38EC8E8CC46089A5046C2149 /* Build configuration list for PBXNativeTarget "QuitSmokingDTx" */;
+			buildPhases = (
+				133832504D3129613FEB3BD6 /* Sources */,
+				053B27940A84DCAA9DB37C55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuitSmokingDTx;
+			packageProductDependencies = (
+			);
+			productName = QuitSmokingDTx;
+			productReference = 4FC6284A21CAB5075E9E1F88 /* QuitSmokingDTx.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA3F8ED6387D4F1A3138D945 /* QuitSmokingDTxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CB5F122493C1674827E6243 /* Build configuration list for PBXNativeTarget "QuitSmokingDTxTests" */;
+			buildPhases = (
+				C1DA2E104111BE771F3F8852 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE8B8E6963BBB05AD54D85B2 /* PBXTargetDependency */,
+			);
+			name = QuitSmokingDTxTests;
+			packageProductDependencies = (
+			);
+			productName = QuitSmokingDTxTests;
+			productReference = 2500F9B8313EE1D58FD5A7F4 /* QuitSmokingDTxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FCA631A78D1AF1194AEF4059 /* QuitSmokingDTxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26B0139F7BAAE4BDEE5C073D /* Build configuration list for PBXNativeTarget "QuitSmokingDTxUITests" */;
+			buildPhases = (
+				2CF3A4726957ED0E9CC82F1D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B424EA89B8EFDC0959E38EB /* PBXTargetDependency */,
+			);
+			name = QuitSmokingDTxUITests;
+			packageProductDependencies = (
+			);
+			productName = QuitSmokingDTxUITests;
+			productReference = 9FAC45B32B4A3F7004D7252E /* QuitSmokingDTxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		855317058BF4C41816050685 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					0F445AC00392F5E8718F75C5 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					FCA631A78D1AF1194AEF4059 = {
+						TestTargetID = 0F445AC00392F5E8718F75C5;
+					};
+				};
+			};
+			buildConfigurationList = 2CDD22B0F26C47A5FA925F5C /* Build configuration list for PBXProject "QuitSmokingDTx" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = EF29DAC9F9AB9BC13572FDF1;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0F445AC00392F5E8718F75C5 /* QuitSmokingDTx */,
+				AA3F8ED6387D4F1A3138D945 /* QuitSmokingDTxTests */,
+				FCA631A78D1AF1194AEF4059 /* QuitSmokingDTxUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		053B27940A84DCAA9DB37C55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9AC6CF9B10DEF2317B87325 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		133832504D3129613FEB3BD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC74ED5EE80C56630C9AFE1C /* AppState.swift in Sources */,
+				C21AF5119510EF69C89028DE /* ContentView.swift in Sources */,
+				CE9614CB495D4736A05B33FA /* DataStorageService.swift in Sources */,
+				39FE705D36D6360839301ACC /* EconomyScreen.swift in Sources */,
+				C87DC15880CA8A2EDC5DE86C /* HomeScreen.swift in Sources */,
+				93E4DBC994D06B5B673974CC /* InsightsScreen.swift in Sources */,
+				45C7E411E59843E7DB28E58D /* InterventionScreen.swift in Sources */,
+				898B9D0C0AC3ECEE14402C40 /* NotificationService.swift in Sources */,
+				6051AC1A5DA45B5E3053625E /* QuitSmokingDTxApp.swift in Sources */,
+				4F0ED100B007F31487F23DA9 /* TrendsScreen.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CF3A4726957ED0E9CC82F1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BD8116AC2FBA834F650CC76 /* QuitSmokingDTxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1DA2E104111BE771F3F8852 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7345EBACD2189A28BDAD780 /* QuitSmokingDTxTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6B424EA89B8EFDC0959E38EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F445AC00392F5E8718F75C5 /* QuitSmokingDTx */;
+			targetProxy = C3F6573E9DEC7EDCF5724C54 /* PBXContainerItemProxy */;
+		};
+		AE8B8E6963BBB05AD54D85B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F445AC00392F5E8718F75C5 /* QuitSmokingDTx */;
+			targetProxy = 57384B6B268EF7F6CE2893FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0E8B5BF76381B0BB0C1820BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dtx.quitsmoking.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuitSmokingDTx.app/QuitSmokingDTx";
+			};
+			name = Release;
+		};
+		2BF93D739579F662838DCA17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dtx.quitsmoking.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuitSmokingDTx.app/QuitSmokingDTx";
+			};
+			name = Debug;
+		};
+		2DB1670EA413FFE3CE01EBFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuitSmokingDTxApp/QuitSmokingDTx.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QuitSmokingDTxApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dtx.quitsmoking;
+				PRODUCT_NAME = QuitSmokingDTx;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96833DFF81FFAEDC1C6C5A0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dtx.quitsmoking.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuitSmokingDTx;
+			};
+			name = Release;
+		};
+		96FB11A266622E7AD7DB6769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dtx.quitsmoking.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuitSmokingDTx;
+			};
+			name = Debug;
+		};
+		A5257CA791A449F1AB645335 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuitSmokingDTxApp/QuitSmokingDTx.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QuitSmokingDTxApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dtx.quitsmoking;
+				PRODUCT_NAME = QuitSmokingDTx;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F001D2B132ABF0AAE4D63C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F3E041E438BC58FB227CA573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CB5F122493C1674827E6243 /* Build configuration list for PBXNativeTarget "QuitSmokingDTxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BF93D739579F662838DCA17 /* Debug */,
+				0E8B5BF76381B0BB0C1820BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		26B0139F7BAAE4BDEE5C073D /* Build configuration list for PBXNativeTarget "QuitSmokingDTxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96FB11A266622E7AD7DB6769 /* Debug */,
+				96833DFF81FFAEDC1C6C5A0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2CDD22B0F26C47A5FA925F5C /* Build configuration list for PBXProject "QuitSmokingDTx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3E041E438BC58FB227CA573 /* Debug */,
+				F001D2B132ABF0AAE4D63C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		38EC8E8CC46089A5046C2149 /* Build configuration list for PBXNativeTarget "QuitSmokingDTx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DB1670EA413FFE3CE01EBFF /* Debug */,
+				A5257CA791A449F1AB645335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 855317058BF4C41816050685 /* Project object */;
+}

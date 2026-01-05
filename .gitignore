@@ -1,0 +1,42 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## User settings
+xcuserdata/
+
+## Scripts
+*.focus
+*.env
+
+## Build results
+build/
+DerivedData/
+
+## Bundle diagnostics
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+## Architecture-specific build products
+*.moved-aside
+*.xcuserstate
+
+## Xcode 6+ Project Settings
+*.xccheckout
+*.xcscmblueprint
+
+## Swift Package Manager
+.build/
+.swiftpm/
+**/.swiftpm/
+
+## Generated files
+*.xcodeproj/
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+
+## Others
+*.DS_Store
+.DS_Store
