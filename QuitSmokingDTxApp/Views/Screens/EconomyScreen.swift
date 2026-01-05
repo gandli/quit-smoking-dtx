@@ -215,9 +215,9 @@ struct SpendingTrendChart: View {
             .padding(.horizontal)
             
             Chart {
-                ForEach(generateSpendingData()) { data in
+                ForEach(generateMonthlySpendingData()) { data in
                     BarMark(
-                        x: .value("日期", data.date, unit: .day),
+                        x: .value("月份", data.month, unit: .month),
                         y: .value("金额", data.amount)
                     )
                     .foregroundStyle(.red.opacity(0.8))
@@ -225,16 +225,10 @@ struct SpendingTrendChart: View {
             }
             .frame(height: 200)
             .chartXAxis {
-                if timeRange == .year || timeRange == .quarter {
-                    AxisMarks(values: .stride(by: .month)) { value in
-                        AxisGridLine()
-                        AxisValueLabel(format: .dateTime.month())
-                    }
-                } else {
-                    AxisMarks(values: .stride(by: .day)) { value in
-                        AxisGridLine()
-                        AxisValueLabel(format: .dateTime.day())
-                    }
+                AxisMarks(values: .stride(by: .month)) { value in
+                    AxisGridLine()
+                    AxisValueLabel(format: .dateTime.month(.narrow))
+                        .font(.system(size: 10))
                 }
             }
             .chartYAxis {
@@ -255,23 +249,38 @@ struct SpendingTrendChart: View {
         .padding(.horizontal)
     }
     
-    private func generateSpendingData() -> [SpendingData] {
-        var data: [SpendingData] = []
+    private func generateMonthlySpendingData() -> [MonthlySpendingData] {
+        var data: [MonthlySpendingData] = []
         let calendar = Calendar.current
         let today = Date()
         
-        for i in 0..<timeRange.days {
-            guard let date = calendar.date(byAdding: .day, value: -i, to: today) else { continue }
+        // 生成最近 12 个月的数据
+        for i in 0..<12 {
+            guard let monthDate = calendar.date(byAdding: .month, value: -i, to: today) else { continue }
             
-            let baseAmount = Double(appState.cigarettesPerDay) * appState.cigarettePrice
-            let reduction = Double(i) * 0.5
-            let amount = max(0, baseAmount - reduction) * Double.random(in: 0.8...1.2)
+            // 获取该月的第一天
+            let components = calendar.dateComponents([.year, .month], from: monthDate)
+            guard let firstDayOfMonth = calendar.date(from: components) else { continue }
             
-            data.append(SpendingData(date: date, amount: amount))
+            // 计算该月的消费金额（基于每日吸烟量和价格）
+            let baseAmount = Double(appState.cigarettesPerDay) * appState.cigarettePrice * 30
+            // 添加一些随机变化使数据更真实
+            let variation = Double.random(in: 0.7...1.3)
+            // 越早的月份消费越高（模拟戒烟进度）
+            let progressFactor = 1.0 - (Double(i) * 0.05)
+            let amount = baseAmount * variation * progressFactor
+            
+            data.append(MonthlySpendingData(month: firstDayOfMonth, amount: max(0, amount)))
         }
         
-        return data.sorted { $0.date < $1.date }
+        return data.sorted { $0.month < $1.month }
     }
+}
+
+struct MonthlySpendingData: Identifiable {
+    let id = UUID()
+    let month: Date
+    let amount: Double
 }
 
 struct SpendingData: Identifiable {

@@ -246,96 +246,16 @@ struct TrendsChart: View {
     @Environment(AppState.self) private var appState
     let timeRange: TimeRange
     
-    @State private var chartType: Int = 2 // 0: 柱状图, 1: 折线图, 2: 热力图
-    
     var body: some View {
         VStack(spacing: 20) {
-            VStack(alignment: .leading, spacing: 12) {
+            HStack {
                 Text("吸烟 vs 忍住趋势")
                     .font(.headline)
-                
-                Picker("图表类型", selection: $chartType) {
-                    Text("柱状图").tag(0)
-                    Text("折线图").tag(1)
-                    Text("热力图").tag(2)
-                }
-                .pickerStyle(.segmented)
-                .accessibilityIdentifier("ChartTypePicker")
+                Spacer()
             }
             
-            if chartType == 2 {
-                HeatmapChart(data: sampleData, timeRange: timeRange)
-                    .frame(height: 200)
-            } else {
-                Chart {
-                    ForEach(sampleData) { data in
-                        if chartType == 0 {
-                            BarMark(
-                                x: .value("日期", data.date, unit: .day),
-                                y: .value("数量", data.smokingCount)
-                            )
-                            .foregroundStyle(.red.opacity(0.7))
-                            .cornerRadius(4)
-                            
-                            BarMark(
-                                x: .value("日期", data.date, unit: .day),
-                                y: .value("数量", data.resistedCount)
-                            )
-                            .foregroundStyle(.green.opacity(0.7))
-                            .cornerRadius(4)
-                        } else {
-                            LineMark(
-                                x: .value("日期", data.date, unit: .day),
-                                y: .value("数量", data.smokingCount),
-                                series: .value("类型", "吸烟")
-                            )
-                            .foregroundStyle(.red)
-                            .interpolationMethod(.catmullRom)
-                            
-                            PointMark(
-                                x: .value("日期", data.date, unit: .day),
-                                y: .value("数量", data.smokingCount)
-                            )
-                            .foregroundStyle(.red)
-                            
-                            LineMark(
-                                x: .value("日期", data.date, unit: .day),
-                                y: .value("数量", data.resistedCount),
-                                series: .value("类型", "忍住")
-                            )
-                            .foregroundStyle(.green)
-                            .interpolationMethod(.catmullRom)
-                            
-                            PointMark(
-                                x: .value("日期", data.date, unit: .day),
-                                y: .value("数量", data.resistedCount)
-                            )
-                            .foregroundStyle(.green)
-                        }
-                    }
-                }
+            HeatmapChart(data: sampleData, timeRange: timeRange)
                 .frame(height: 200)
-                .chartForegroundStyleScale([
-                    "吸烟": .red,
-                    "忍住": .green
-                ])
-                .chartXAxis {
-                    let stride: Calendar.Component = timeRange == .year ? .month : (timeRange == .threeMonths ? .month : .day)
-                    AxisMarks(values: .stride(by: stride)) { value in
-                        AxisGridLine()
-                        if timeRange == .year {
-                            AxisValueLabel(format: .dateTime.month())
-                        } else if timeRange == .threeMonths {
-                            AxisValueLabel(format: .dateTime.month().day())
-                        } else {
-                            AxisValueLabel(format: .dateTime.day())
-                        }
-                    }
-                }
-                .chartYAxis {
-                    AxisMarks()
-                }
-            }
         }
         .padding()
         .background(
@@ -578,63 +498,167 @@ struct HeatmapChart: View {
     let timeRange: TimeRange
     
     var body: some View {
+        let cellSize = getCellSize()
+        
         ScrollView(.horizontal, showsIndicators: false) {
-            Chart {
-                ForEach(data) { item in
-                    RectangleMark(
-                        x: .value("周", weekLabel(for: item.date)),
-                        y: .value("星期", dayOfWeek(for: item.date)),
-                        width: .fixed(12),
-                        height: .fixed(12)
-                    )
-                    .foregroundStyle(color(for: item))
-                    .cornerRadius(2)
-                }
+            Chart(data) { item in
+                RectangleMark(
+                    xStart: .value("Start week", item.date, unit: .weekOfYear),
+                    xEnd: .value("End week", item.date, unit: .weekOfYear),
+                    yStart: .value("Start weekday", weekday(for: item.date)),
+                    yEnd: .value("End weekday", weekday(for: item.date) + 1)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: cornerRadius).inset(by: insetBy))
+                .foregroundStyle(by: .value("抵抗次数", item.resistedCount))
             }
-            .frame(width: CGFloat(data.count / 7 + 2) * 20)
+            .chartPlotStyle { content in
+                content
+                    .aspectRatio(aspectRatio, contentMode: .fit)
+                    .frame(height: chartHeight)
+            }
+            .chartForegroundStyleScale(range: Gradient(colors: colors))
             .chartXAxis {
-                AxisMarks(values: .stride(by: .month)) { value in
-                    if let date = value.as(Date.self) {
-                        AxisValueLabel(format: .dateTime.month())
+                if shouldShowMonthLabels {
+                    AxisMarks(position: .top, values: .stride(by: .month)) {
+                        AxisValueLabel(format: .dateTime.month(.abbreviated))
+                            .foregroundStyle(Color(.label))
+                            .font(.system(size: xAxisFontSize))
+                    }
+                } else {
+                    AxisMarks(position: .top) { _ in
+                        AxisValueLabel("")
                     }
                 }
             }
             .chartYAxis {
-                AxisMarks(values: [2, 4, 6]) { value in
-                    AxisValueLabel {
-                        if let day = value.as(Int.self) {
-                            Text(dayLabel(for: day))
-                                .font(.system(size: 8))
-                                .foregroundColor(.secondary)
+                AxisMarks(position: .leading, values: yAxisValues) { value in
+                    if let value = value.as(Int.self) {
+                        AxisValueLabel {
+                            Text(weekdayLabel(for: value))
+                                .font(.system(size: yAxisFontSize))
                         }
+                        .foregroundStyle(Color(.label))
                     }
                 }
+            }
+            .chartYScale(domain: .automatic(includesZero: false, reversed: true))
+            .chartLegend {
+                HStack(spacing: 4) {
+                    Text("少")
+                        .font(.caption2)
+                    ForEach(legendColors, id: \.self) { color in
+                        color
+                            .frame(width: 10, height: 10)
+                            .cornerRadius(2)
+                    }
+                    Text("多")
+                        .font(.caption2)
+                }
+                .padding(4)
+                .foregroundStyle(Color(.label))
             }
             .padding(.trailing, 20)
         }
     }
     
-    private func weekLabel(for date: Date) -> Date {
-        let calendar = Calendar.current
-        return calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)) ?? date
+    // 根据时间范围调整方格大小
+    private func getCellSize() -> CGFloat {
+        switch timeRange {
+        case .week: return 24
+        case .month: return 18
+        case .threeMonths: return 12
+        case .year: return 8
+        }
     }
     
-    private func dayOfWeek(for date: Date) -> Int {
-        Calendar.current.component(.weekday, from: date)
+    private var cornerRadius: CGFloat {
+        switch timeRange {
+        case .week: return 3
+        case .month: return 2
+        case .threeMonths: return 2
+        case .year: return 1
+        }
     }
     
-    private func dayLabel(for day: Int) -> String {
-        let labels = ["日", "一", "二", "三", "四", "五", "六"]
-        return labels[day - 1]
+    private var insetBy: CGFloat {
+        switch timeRange {
+        case .week: return 2
+        case .month: return 1.5
+        case .threeMonths: return 1
+        case .year: return 0.5
+        }
     }
     
-    private func color(for data: DailyData) -> Color {
-        // GitHub 风格 5 级颜色
-        let count = data.resistedCount
-        if count == 0 { return Color(.systemGray6) }
-        else if count <= 2 { return Color.green.opacity(0.3) }
-        else if count <= 4 { return Color.green.opacity(0.5) }
-        else if count <= 7 { return Color.green.opacity(0.7) }
-        else { return Color.green }
+    private var chartHeight: CGFloat {
+        switch timeRange {
+        case .week: return 200
+        case .month: return 180
+        case .threeMonths: return 150
+        case .year: return 120
+        }
+    }
+    
+    private var shouldShowMonthLabels: Bool {
+        timeRange != .week
+    }
+    
+    private var xAxisFontSize: CGFloat {
+        switch timeRange {
+        case .week: return 10
+        case .month: return 9
+        case .threeMonths: return 8
+        case .year: return 7
+        }
+    }
+    
+    private var yAxisFontSize: CGFloat {
+        switch timeRange {
+        case .week: return 11
+        case .month: return 10
+        case .threeMonths: return 9
+        case .year: return 8
+        }
+    }
+    
+    private var yAxisValues: [Int] {
+        switch timeRange {
+        case .week: return [1, 2, 3, 4, 5, 6, 7]
+        case .month: return [1, 3, 5, 7]
+        case .threeMonths, .year: return [1, 4, 7]
+        }
+    }
+    
+    // 将周日(1)转换为7，其他星期减1，使周一为1
+    private func weekday(for date: Date) -> Int {
+        let weekday = Calendar.current.component(.weekday, from: date)
+        let adjustedWeekday = (weekday == 1) ? 7 : (weekday - 1)
+        return adjustedWeekday
+    }
+    
+    private func weekdayLabel(for value: Int) -> String {
+        let labels = ["一", "二", "三", "四", "五", "六", "日"]
+        return labels[value - 1]
+    }
+    
+    private var aspectRatio: Double {
+        if data.isEmpty { return 1 }
+        let firstDate = data.first!.date
+        let lastDate = data.last!.date
+        let firstWeek = Calendar.current.component(.weekOfYear, from: firstDate)
+        let lastWeek = Calendar.current.component(.weekOfYear, from: lastDate)
+        return Double(lastWeek - firstWeek + 1) / 7
+    }
+    
+    private var colors: [Color] {
+        (0...10).map { index in
+            if index == 0 {
+                return Color(.systemGray5)
+            }
+            return Color(.systemGreen).opacity(Double(index) / 10)
+        }
+    }
+    
+    private var legendColors: [Color] {
+        Array(stride(from: 0, to: colors.count, by: 2).map { colors[$0] })
     }
 }
