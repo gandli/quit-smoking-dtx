@@ -1,0 +1,5 @@
+name: Development Task
+about: Break down work into actionable tasks
+title: 'task: '
+labels: 'type: task, status: ready'
+assignees: ''
